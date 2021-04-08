@@ -1,19 +1,19 @@
-<p id="notice"><%= notice %></p>
+<div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 my-16">
+  <p>
+    <strong>Room:</strong>
+    <%= @room.name %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @room.name %>
-</p>
+  <%= turbo_stream_from "room-#{@room.id}" %>
+  <%= turbo_frame_tag "messages" do %>
+    <%= render @messages %>
+  <% end %>
 
-<%= turbo_stream_from "room-#{@room.id}" %>
-<%= turbo_frame_tag "messages" do %>
-  <%= render @messages %>
-<% end %>
+  <%= form_with model: Message.new, method: :post, url: room_messages_path(@room), local: false, class: "mt-3" do |f| %>
+    <%= f.rich_text_area :content %>
+    <%= f.submit "Send Message", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer my-3" %>
+  <% end %>
 
-<%= form_with model: Message.new, method: :post, url: room_messages_path(@room), local: false do |f| %>
-  <%= f.rich_text_area :content %>
-  <%= f.submit %>
-<% end %>
+  <%= link_to 'Back', rooms_path, class: "bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-l" %>
 
-<%= link_to 'Edit', edit_room_path(@room) %> |
-<%= link_to 'Back', rooms_path %>
+</div>

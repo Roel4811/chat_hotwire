@@ -14,3 +14,4 @@ ActiveStorage.start()
 require("trix")
 require("@rails/actiontext")
 import "controllers"
+import  "../layouts/application.css";
