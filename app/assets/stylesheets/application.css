@@ -14,14 +14,14 @@
  *= require_self
  */
 
- .nav-item {
-   color: white !important;
- }
- .nav-item:hover {
-   color: white !important;
- }
+.nav-item {
+  color: white !important;
+}
+.nav-item:hover {
+  color: white !important;
+}
 
- a:hover {
+a:hover {
   color: rgba(31, 41, 55, var(--tw-text-opacity)) !important;
   background-color: transparent;
- }
+}
