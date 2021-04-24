@@ -1,5 +1,8 @@
-<h1>New Room</h1>
+<div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 my-16">
 
-<%= render 'form', room: @room %>
+  <h1 class="text-xl font-bold color-black my-5">New Room</h1>
 
-<%= link_to 'Back', rooms_path %>
+  <%= render 'form', room: @room %>
+
+  <%= link_to 'Back', rooms_path, class: "text-blue-600 visited:text-purple-600" %>
+</div>
