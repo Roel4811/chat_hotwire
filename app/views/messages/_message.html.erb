@@ -1,3 +1,5 @@
-<%= turbo_frame_tag dom_id(message) do %>
-  <p><%= message.content %></p>
+<% if message.id %>
+  <div class="flex" id="<%= message.id %>">
+    <%= message.created_at&.strftime("%B %e, %Y at %I:%M %p") %>:&nbsp;&nbsp;<%= message.content %>
+  </div>
 <% end %>
